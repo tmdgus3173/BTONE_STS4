@@ -83,7 +83,74 @@
 		});
 
 	}
+	
+	
+	
+	
+	
+	
+	
 </script>
+
+<script>
+//검색기능을 여기에 만드는데 검색은 조회와 같은 기능이다. 쿼리만 조금 다를뿐일거다.
+	$(document).ready(function(){
+		
+		$("#tabs").tabs();
+		
+		$("#tabs1-tabs").tabs();
+		
+		
+	});
+	
+funtion fn_searching(){
+	
+	var frmData1 = $("#tabs1-frm").serializeArray();
+	
+	$.ajax({
+		url : "main/getUser.do",
+		type : "post",
+		dateType : "json",
+		date : frmData,
+		success : function("date", date){
+			console.log("data1",data);
+			
+			$("#tabs1-tabs1-input").val(data.result);
+			var list = data;
+			
+			val htmlHead1 = "";
+			var hrmlBody1 = "";
+			
+			htmlHead += " 	<tr>";
+			htmlHead += " 		<th width='20px'>No</th>";
+			htmlHead += " 		<th width='55px'>사번</th>";
+			htmlHead += " 		<th width='55px'>생일</th>";
+			htmlHead += " 		<th width='55px'>성</th>";
+			htmlHead += " 		<th width='70px'>이름</th>";
+			htmlHead += " 		<th width='40px'>성별</th>";
+			htmlHead += " 		<th width='120px'>입사일</th>";
+			htmlHead += " 	</tr>";
+			
+			
+			
+			
+		}
+		
+		
+		
+	})
+	
+}
+
+	
+	
+	
+	
+
+
+</script>
+
+
 </head>
 <body>
 	<div class="container">
@@ -117,8 +184,17 @@
 						<div class="">
 							<div class="layout">
 								<button class="button color_sub"
-									onclick="fn_search();">조회
+									onclick="fn_search();">조회			
 								</button>
+								
+								<form>
+									<input type="text" name="word" placeholder="사번을 입력하세요.">
+									<button class ="button color_sub" onclick="fn_searching();">
+										검색
+									</button></form>
+								</form>
+								
+								
 							</div>
 							<div class="layout">
 								<div class="fixedTable">
