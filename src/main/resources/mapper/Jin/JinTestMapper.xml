@@ -13,10 +13,15 @@
     </select>
 
 
-	<select id="">
-	
-	
-	
+	<select id="searchUserList" resultType="com.jincomp.jintest.web.jin.vo.UserVO" parameterType="String">
+	SELECT EMP_NO,
+		BIRTH_DATE,
+		FIRST_NAME,
+		LAST_NAME,
+		GENDER,
+		HIRE_DATE
+	FROM EMPLOYEES
+	WHERE EMP_NO = #{empNo}
 	</select>
 
 

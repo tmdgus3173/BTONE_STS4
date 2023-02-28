@@ -32,6 +32,15 @@ public class UserService {
 
 		return mapper;
 	}
+	
+	public List<UserVO> searchUserList(String word){
+		logger.debug("searchUserList 진입");
+		
+		List<UserVO> mapper1 = jinMapper.searchUserList(word);
+		
+		
+		return mapper1;
+	}
 
 
 }
