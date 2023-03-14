@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jincomp.jintest.web.jin.mapper.BookCheckOutMapper">
+
+	<select id="getBookCheckOutList" resultType="com.jincomp.jintest.web.jin.vo.BookCheckOutVO">
+   SELECT EMP_NO,
+	       START_DATE,
+	       END_DATE,
+	       GOODS_ID
+	FROM   BOOKS_CHECK_OUT
+    </select>
+</mapper>

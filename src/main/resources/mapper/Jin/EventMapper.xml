@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jincomp.jintest.web.jin.mapper.EventMapper">
+
+	<select id="getEventList" resultType="com.jincomp.jintest.web.jin.vo.EventVO">
+   SELECT EVENT_ID
+	      ,FIX_DISCOUNT
+	      ,RATE_STR_DAY
+	      ,RATE_END_DAY
+	      ,RATE
+	FROM EVENT
+    </select>
+</mapper>

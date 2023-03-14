@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jincomp.jintest.web.jin.mapper.UserMapper">
+
+	<select id="getUserList" resultType="com.jincomp.jintest.web.jin.vo.UserVO">
+   SELECT EMP_NO,
+	       BIRTH_DATE,
+	       NAME,
+	       GENDER,
+	       HIRE_DATE
+	FROM   EMPLOYEES
+    </select>
+    
+    
+    
+    <delete id ="deleteCheckUser" parameterType="String">
+	 DELETE 
+	 FROM EMPLOYEES
+	 WHERE EMP_NO = #{empNo}
+   </delete>
+    
+    
+  <insert id="insertUser" parameterType="com.jincomp.jintest.web.jin.vo.UserVO">
+    INSERT INTO EMPLOYEES (
+			EMP_NO,
+			NAME,
+			BIRTH_DATE,
+			GENDER,
+			HIRE_DATE
+		) values (
+			#{empNo},
+			#{name},
+			#{birthDate},
+			#{gender},
+			#{hireDate}
+		)
+    
+    </insert>
+   
+    
+    
+<!--
+# { }
+값에 ' '가 자동으로 붙음
+PreparedStatement 통해 악의적인 쿼리주입을 예방할 수 있음
+보완차원에서 유리
+주로 사용자의 입력을 전달할때 사용
+$ { }
+' '가 자동으로 붙지않음
+Statement 방법으로 파라매터가 출력되어서 전달됌
+의도적인 쿼리주입을 막을 수 없음
+SQL injection 보안 위험 발생 가능
+주로 table명 column명 전달시 사용 
+-->
+    
+    
+
+</mapper>
