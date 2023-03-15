@@ -12,16 +12,11 @@ import com.jincomp.jintest.web.jin.vo.BookVO;
 
 import lombok.RequiredArgsConstructor;
 
-/**
- *
- * @author kyj
- */
 @RequiredArgsConstructor
 @Service
 public class BookService {
-
 	private static final Logger logger = LoggerFactory.getLogger(BookService.class);
-	
+
 	@Autowired
 	private BookMapper bookMapper;
 	

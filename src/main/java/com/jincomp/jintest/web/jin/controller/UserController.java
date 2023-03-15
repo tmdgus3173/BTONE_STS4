@@ -28,7 +28,7 @@ public class UserController {
 	private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
 	
-	@GetMapping("/")  // 처음 DOMAIN 주소로 접근시 jsp 호출용.
+	@GetMapping("/user")  // 처음 DOMAIN 주소로 접근시 jsp 호출용.
 	public String showFirstHome(@RequestParam HashMap param, HttpServletRequest request, HttpServletResponse response, ModelMap model) throws Exception {
 		
 	List<UserVO> list = userService.getUserList();
