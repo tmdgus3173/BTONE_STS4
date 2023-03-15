@@ -9,10 +9,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jincomp.jintest.web.jin.service.UserService;
+import com.jincomp.jintest.web.jin.vo.UserLoginVO;
 import com.jincomp.jintest.web.jin.vo.UserVO;
 
 import lombok.RequiredArgsConstructor;
@@ -49,6 +53,24 @@ public class UserRestController {
 
        return row;
    }
+   
+   
+   //회원가입
+   @RequestMapping(value ="/signUp.do", method = RequestMethod.POST)
+   public int signUpUser(@RequestBody UserLoginVO userLoginVO) throws Exception {
+	   
+//	   		@RequestParam("userNo") int userNo,
+//			@RequestParam("userId") String userId, 
+//			@RequestParam("userPassword") String userPassword, 
+//			@RequestParam("iuserName") String userName, 
+//			@RequestParam("userAddress") String userAddress, 
+	   
+	   //Requestbody로 바꿈.
+	   int result = jinService.signUpUser(userLoginVO);
+	   
+	   return result;
+   }
+   
    
    
 

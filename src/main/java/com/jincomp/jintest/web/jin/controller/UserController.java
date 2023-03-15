@@ -46,8 +46,12 @@ public class UserController {
 			userService.deleteCheckUser(empNo);
 				
 		}
+	
 		
-//		return "redirect:/";
+		
+		
+		
+
 		
 	}
 	//추가 

@@ -36,6 +36,24 @@
 		)
     
     </insert>
+    
+    <insert id="signUpUser" parameterType="com.jincomp.jintest.web.jin.vo.UserLoginVO">
+    INSERT INTO USER_LOGIN(
+	    	USER_NO
+	    	, USER_ID
+	    	, USER_PASSWORD
+	    	, USER_NAME
+	    	, USER_ADDRESS
+	    ) VALUES (
+	    	#{userNo}
+	    	,#{userId}
+	    	,#{userPassword}
+	    	,#{userName}
+	    	,#{userAddress}	
+	    )
+    </insert>
+    
+    
    
     
     

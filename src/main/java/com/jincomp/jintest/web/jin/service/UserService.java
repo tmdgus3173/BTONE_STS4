@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jincomp.jintest.web.jin.mapper.UserMapper;
+import com.jincomp.jintest.web.jin.vo.UserLoginVO;
 import com.jincomp.jintest.web.jin.vo.UserVO;
 
 import lombok.RequiredArgsConstructor;
@@ -47,7 +48,13 @@ public class UserService {
 		return result;
 	}
 	
-	
+	//회원가입
+	public int signUpUser(UserLoginVO userLoginVO) {
+		
+		int signResult = jinMapper.signUp(userLoginVO);
+		
+		return signResult;
+	}
 	
 	
 	
@@ -96,6 +103,11 @@ public class UserService {
 		return row;
 	
 }
+	
+		
+	
+		
+	
 	
 
 }

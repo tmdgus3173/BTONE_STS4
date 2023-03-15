@@ -18,7 +18,7 @@
 <script src="<c:url value='/js/jquery-ui.js'/>"></script>
 
 <script>
-
+	
 $(document).ready(function() {
 
 		//
@@ -28,8 +28,46 @@ $(document).ready(function() {
 
 	});
 	
+	
+	
+	// 회원가입
 	function fn_signUp(){
 		
+		var userNo = $("#userNo").val();
+		var userId = $("#userId").val();
+		var userPass = $("#userPassword").val();
+		var userName = $("#iuserName").val();
+		var userAddress = $("#userAddress").val();
+		
+		console.log("userNo : ", userNo);
+		console.log("userID : ", userId);
+		console.log("userPass : ", userPass);
+		console.log("userName : ", userName);
+		console.log("userAddress : ", userAddress);
+		
+		
+		
+	 	$.ajax({
+			url : "/main/signUp.do",
+			type : "post",
+			data : {
+				userNo : userNo,
+				userId : userId,
+				userPass : userPassword,
+				userName : iuserName,
+				userAddress : userAddress 
+				//코드 낭비하지 말고 한번에 묶어서 보낼 수 있게.
+				
+			//success와 error 자리 구분하고 보내는 것과 받는 것의 구분을 확실히 지어라
+			},
+			success : function(result){
+				alert("완료");
+			}, 
+			error : function(){
+				alert("에러");
+			}
+			//라인 중요하게 생각하세요.
+		}); 
 	}
 	
 	
@@ -177,7 +215,7 @@ $(document).ready(function() {
 					var item = list[i];
 					
 					htmlBody += "<tr>";
-					htmlBody += "<td width='5px'> <input type = 'checkbox' name = 'deleteCheck' id='deleteCheck'> </td>" 
+					htmlBody += "<td width='5px'> <input type = 'checkbox' name = 'deleteCheck'> </td>" 
 					htmlBody += "<td width='20px'>" + (i + 1) + "</td>"
 					htmlBody += "<td width='55px'>" + item["empNo"] + "</td>";
 					htmlBody += "<td width='55px'>" + item["birthDate"]	+ "</td>";
@@ -288,7 +326,7 @@ $(document).ready(function() {
 											<tbody class="table" id="tableBody">
 											 	<c:forEach var="item" items="${list}" varStatus="status">
 													<tr>
-														<th width='5px'><label><input type="checkbox" name='deleteCheck' id="deleteCheck" value= "${item.empNo}"></label></th>
+														<th width='5px'><label><input type="checkbox" name='deleteCheck'  value= "${item.empNo}"></label></th>
 														<th width='20px'>${status.count}</th>
 														<th width='55px'>${item.empNo}</th>
 														<th width='55px'>${item.birthDate}</th>
@@ -391,28 +429,26 @@ $(document).ready(function() {
             <div id = "tabsUserJoin">
                <p> 회원정보를 입력해주세요 </p>
                <div class="userinfo_box">
-                  <div>
-                     <input type="text"  placeholder="성함">
+               	<div>
+               		<input type="hidden" id="userNo" name="userNo" value = "22" >
+               	</div>
+                  <div>이름 : 
+                     <input type="text" id="iuserName" name="iuserName"  placeholder="성함">
+                  </div>
+                  <div>아이디 : 
+                     <input type="text" id="userId" name="userId"  placeholder="아이디">
+                  </div>
+                  <div>비밀번호 : 
+                     <input type="password" id="userPassword" name="userPassword" placeholder="비밀번호">
+                  </div>
+                  <!-- <div>
+                     <input type="password" id="iuserPassword" name="iuserPassword" placeholder="비밀번호 확인">
+                  </div> -->
+                  <div>주소 : 
+                     <input type="text" id="userAddress" name="userAddress" placeholder="주소">
                   </div>
                   <div>
-                     <input type="text"  placeholder="아이디">
-                  </div>
-                  <div>
-                     <input type="password" placeholder="비밀번호">
-                  </div>
-                  <div>
-                     <input type="password" placeholder="비밀번호 확인">
-                  </div>
-                  <div>
-                     <input type="text" placeholder="휴대폰번호">
-                  </div>
-                  <div>
-                     <input type="text" placeholder="주소">
-                     <button class = "buttonAddress">주소 찾기</button>
-                     <input type="text" placeholder="상세 주소">
-                  </div>
-                  <div>
-                     <button class="button" onclick = "fn_signUp">회원가입</button>
+                     <button class="button" onclick = "fn_signUp();">회원가입</button>
                      <button class="button">취소</button>
                   </div>
                </div> <!--userinfo_box -->
